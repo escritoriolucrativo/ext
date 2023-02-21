@@ -284,7 +284,7 @@ app.post("/ext",(req, res) => {
       
 
         var teste = req.body.sub_key;
-        for (let index = 0; index < user.sub_key.length; index++) {
+        for (let index = 0; index < 14; index++) {
          const acessoValido = user.sub_key[index];
          if (teste === acessoValido){
          res.json(DB.games);}else{
