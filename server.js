@@ -285,7 +285,7 @@ app.post("/ext",(req, res) => {
 
       var teste = req.body.sub_key
 
-      const acessoValido = user.sub_key.find(teste => teste);
+      const acessoValido = user.sub_key.map(teste => teste);
       if (teste === acessoValido) {
       res.statusCode = 200;
       res.json(DB.games);}else{
