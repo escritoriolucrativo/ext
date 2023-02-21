@@ -274,19 +274,17 @@ var DB = {
     
 }
 
-const user = {
-   sub_key: ['147beh5zgxyjai082vnus9rqm4df7otw13', '147beh5zgxyjai082vnus9rqm4df7otw16', '1476lj94rph50mduwin718kqytxzfoegv3']
-   }
+const sub_key = ['147beh5zgxyjai082vnus9rqm4df7otw13', '147beh5zgxyjai082vnus9rqm4df7otw16', '1476lj94rph50mduwin718kqytxzfoegv3']
+
+
+
 
 
 app.post("/ext",(req, res) => {
     if (req.body) {
-      
-
       var teste = req.body.sub_key
-
-      const acessoValido = user.sub_key.map(teste => teste);
-      if (teste === acessoValido) {
+      if (sub_key.includes(teste)) {
+         console.log(sub_key.includes(teste))
       res.statusCode = 200;
       res.json(DB.games);}else{
       res.statusCode = 200;
