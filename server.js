@@ -284,7 +284,6 @@ app.post("/ext",(req, res) => {
     if (req.body) {
       var teste = req.body.sub_key
       if (sub_key.includes(teste)) {
-         console.log(sub_key.includes(teste))
       res.statusCode = 200;
       res.json(DB.games);}else{
       res.statusCode = 200;
