@@ -275,24 +275,24 @@ var DB = {
 }
 
 const user = {
-   sub_key: ['147beh5zgxyjai082vnus9rqm4df7otw12', '147beh5zgxyjai082vnus9rqm4df7otw16', '1476lj94rph50mduwin718kqytxzfoegv3', '383afa700e70414b932ce84f6b08522d', '6c20264b-4745-4025-a93f-f34c5a128078', '80cf647ae2fc44c683ac9d0695ca7522', 'f5d0a441a26c460594f956bee6006ff0', 'fc11c287b4f14d1cbd0fead4c071ae8d', '5a2603ae22704110817a8e143c0203e9', '7dfbc0fcdb214f1bad0b52876f811ce3', '487b5ad2198b4e1f92932071da1b8f24', '6e72b897b67b46efbb77c736e3717030', 'a75a0136f2764604a73e5b587bd321c6', 'e4f57b6d9ae84226a680095b10469110']
-}
+   sub_key: ['147beh5zgxyjai082vnus9rqm4df7otw13', '147beh5zgxyjai082vnus9rqm4df7otw16', '1476lj94rph50mduwin718kqytxzfoegv3']
+   }
 
 
 app.post("/ext",(req, res) => {
     if (req.body) {
       
 
-        var teste = req.body.sub_key;
-        for (let index = 0; index < 14; index++) {
-         const acessoValido = user.sub_key[index];
-         if (teste === acessoValido){
-         res.json(DB.games);}else{
-            res.statusCode = 200;
-            res.json(DB.free);}
-      }
+      var teste = req.body.sub_key
+
+      const acessoValido = user.sub_key.find(teste => teste);
+      if (teste === acessoValido) {
+      res.statusCode = 200;
+      res.json(DB.games);}else{
+      res.statusCode = 200;
+      res.json(DB.free);}
 }else{res.statusCode = 200;
-   res.json(DB.free)}});
+ res.json(DB.free)}});
 
 
 app.post("/ext/subscription/add",(req, res) => {
